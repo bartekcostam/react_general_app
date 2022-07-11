@@ -4,42 +4,40 @@ import axios from 'axios'
 import './App.css';
 
 
+const api = axios.create({
+  baseURL: `https://api.publicapis.org/entries`
+})
+
 class App extends Component {
-
-
   state = {
-    employees: []
+
+    data: []
+
   }
 
 
-  componentDidMount() {
 
-    axios.get("https://dummy.restapiexample.com/api/v1/employees",null).then(response => {
-      const employees = response.data
-      this.setState({employees: employees})
+
+  constructor(){
+    super()
+    api.get('').then(res => {
+      console.log(res.data);
+      this.setState({data: res.data})
     })
-    /*console
-0: "data"
-1: "status"
-2: "statusText"
-3: "headers"
-4: "config"
-5: "request"
-length: 6
-    */
   }
 
-
+  
 
   render(){
 
-
+    let test = "Cos"
 
 
     return (
       <div className="App">
         <h1>Costam</h1>
-        
+        <h2>{test}</h2>
+        <h3>{this.state.data[5]}</h3>
       </div>
     )
   
