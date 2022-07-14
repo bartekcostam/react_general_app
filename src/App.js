@@ -23,6 +23,7 @@ class App extends Component {
     api.get('').then(res => {
       console.log(res.data);
       this.setState({data: res.data})
+      console.log(typeof(res.data.entries[0].Auth))
     })
   }
 
@@ -37,7 +38,7 @@ class App extends Component {
       <div className="App">
         <h1>Costam</h1>
         <h2>{test}</h2>
-        <h3>{this.state.data[5]}</h3>
+        <h3>{this.state.data.entries[0].Auth}</h3>
       </div>
     )
   
